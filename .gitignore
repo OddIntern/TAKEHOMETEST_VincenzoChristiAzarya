@@ -1,0 +1,16 @@
+# Backend (Python)
+backend/venv/
+backend/__pycache__/
+backend/instance/
+backend/.pytest_cache/
+*.pyc
+
+# Frontend (Node)
+frontend/task-manager-ui/node_modules/
+frontend/task-manager-ui/dist/
+frontend/task-manager-ui/.env
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/
