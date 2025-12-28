@@ -2,8 +2,8 @@
   <div class="flex items-center justify-center min-h-screen bg-slate-900">
     <div class="w-full max-w-md p-8 space-y-6 bg-white rounded-2xl shadow-2xl">
       <div class="text-center">
-        <h1 class="text-3xl font-extrabold text-gray-900">Task AI</h1>
-        <p class="text-gray-500 mt-2">{{ isRegister ? 'Create an account' : 'Welcome back' }}</p>
+        <h1 class="text-3xl font-extrabold text-gray-900">Flow</h1>
+        <p class="text-gray-500 mt-2">{{ isRegister ? 'Create an account' : 'A Simple Task Management App' }}</p>
       </div>
       
       <form @submit.prevent="handleSubmit" class="space-y-4">

@@ -35,19 +35,17 @@ def get_tasks(current_user):
     tasks = Task.query.filter_by(user_id=current_user.id).order_by(Task.position.asc()).all()
     return jsonify(tasks_schema.dump(tasks))
 
-# --- 2. CREATE TASK (No AI) ---
+# --- 2. CREATE TASK---
 @bp.route('', methods=['POST'])
 @token_required
 def create_task(current_user):
     data = request.get_json()
     
-    # Direct mapping from Frontend -> Database
-    # No AI guessing, just defaults if the user left it blank
     title = data.get('title')
     description = data.get('description', '')
-    priority = data.get('urgency', 'Low')   # Default to Low
-    selected_tag = data.get('tag', 'Feature') # Default to Feature
-    due_date = data.get('dueDate')          # Default to None (Empty)
+    priority = data.get('urgency', 'Low')   
+    selected_tag = data.get('tag', 'Feature') 
+    due_date = data.get('dueDate')          
 
     count = Task.query.filter_by(user_id=current_user.id, status='To Do').count()
     

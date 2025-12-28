@@ -11,13 +11,13 @@ class Task(db.Model):
     position = db.Column(db.Integer, default=0)
     
     # New / Updated Fields matching your prototype
-    tag = db.Column(db.String(50), default='Feature') # Feature, Bug, Design
-    priority = db.Column(db.String(20), default='Low') # High, Medium, Low
-    due_date = db.Column(db.String(20), nullable=True) # Storing as YYYY-MM-DD string for simplicity
+    tag = db.Column(db.String(50), default='Feature') 
+    priority = db.Column(db.String(20), default='Low') 
+    due_date = db.Column(db.String(20), nullable=True) 
     
     # JSON Fields for complex data
-    assigned_user_ids = db.Column(db.JSON, default=list) # ["u1", "u2"]
-    history = db.Column(db.JSON, default=list) # [{"action": "Created", "date": "..."}]
+    assigned_user_ids = db.Column(db.JSON, default=list) 
+    history = db.Column(db.JSON, default=list) 
     
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
@@ -30,7 +30,7 @@ class Task(db.Model):
             'status': self.status,
             'position': self.position,
             'tag': self.tag,
-            'urgency': self.priority, # Mapping 'priority' DB col to 'urgency' frontend key
+            'urgency': self.priority, 
             'dueDate': self.due_date,
             'assignedUserIds': self.assigned_user_ids,
             'history': self.history,
