@@ -79,8 +79,23 @@ Follow these instructions to set up the project locally for development.
 ### Prerequisites
 * Node.js (v16+)
 * Python (v3.8+)
-* PostgreSQL
-### 1. Backend Setup
+* PostgreSQL (Must be installed and running)
+
+### 1. Database Setup
+Before running the app, make sure you have a PostgreSQL database named `taskdb`.
+
+1.  Open your terminal or pgAdmin.
+2.  Create the database:
+    ```bash
+    createdb taskdb
+    # OR run this SQL: CREATE DATABASE taskdb;
+    ```
+3.  **Check Credentials:** The app defaults to user `postgres` and password `password`.
+    * If your credentials differ, set the `DATABASE_URL` environment variable:
+    * *Windows (PowerShell):* `$env:DATABASE_URL="postgresql://YOUR_USER:YOUR_PASS@localhost:5432/taskdb"`
+    * *Mac/Linux:* `export DATABASE_URL="postgresql://YOUR_USER:YOUR_PASS@localhost:5432/taskdb"`
+
+### 2. Backend Setup
 
 Navigate to the backend directory and set up the Python environment.
 
@@ -109,7 +124,7 @@ python run.py
 
 The API will start running at http://127.0.0.1:5000.
 
-### 2. Frontend Setup
+### 3. Frontend Setup
 Open a new terminal window and navigate to the frontend directory.
 
 
